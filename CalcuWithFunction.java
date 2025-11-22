@@ -5,7 +5,6 @@ import javax.swing.*;
 
 public class CalcuWithFunction extends JFrame implements ActionListener {
     
-    // Calculator state
     private double currentNumber = 0;
     private double storedNumber = 0;
     private String currentOperator = "";
@@ -23,7 +22,6 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         
-        // Set smaller, compact size
         setPreferredSize(new Dimension(280, 380));
         
         JPanel mainPanel = new JPanel(new BorderLayout(5, 5));
@@ -74,7 +72,6 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
         JPanel panel = new JPanel(new GridLayout(6, 5, 3, 3));
         panel.setBackground(new Color(240, 240, 240));
         
-        // Button layout matching your specification
         String[] buttonLabels = {
             "MC", "MR", "MS", "M+", "M-",
             "CE", "C", "+", "√", "",
@@ -106,13 +103,11 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
         button.setFocusPainted(false);
         button.setMargin(new Insets(2, 2, 2, 2));
         
-        // Modern, flat design
         button.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(180, 180, 180)),
             BorderFactory.createEmptyBorder(4, 0, 4, 0)
         ));
         
-        // Color scheme
         if (text.equals("=")) {
             button.setBackground(new Color(0, 120, 215));
             button.setForeground(Color.WHITE);
@@ -130,7 +125,6 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
         return button;
     }
     
-    // ACTION HANDLER
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
@@ -176,7 +170,6 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
         }
     }
     
-    // FUNCTIONALITY METHODS
     private void handleNumberInput(String number) {
         if (newNumber) {
             display.setText(number);
@@ -321,7 +314,7 @@ public class CalcuWithFunction extends JFrame implements ActionListener {
     }
     
     public static void main(String[] args) {
-        // Simple and safe main method
+
         SwingUtilities.invokeLater(() -> {
             new CalcuWithFunction().setVisible(true);
         });
